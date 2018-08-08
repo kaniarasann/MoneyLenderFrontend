@@ -1,0 +1,7 @@
+{
+  "name": "MoneyLender",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
