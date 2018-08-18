@@ -1,4 +1,4 @@
-import { ToastController, Toast } from "../../../node_modules/ionic-angular";
+import { ToastController } from "../../../node_modules/ionic-angular";
 
 export class BaseController {
   constructor(public toaster: ToastController) {}
