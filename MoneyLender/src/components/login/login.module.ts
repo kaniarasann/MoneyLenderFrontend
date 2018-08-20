@@ -1,6 +1,6 @@
 import { NgModule } from "../../../node_modules/@angular/core";
 import { LoginComponent } from "./login";
-import { IonicPageModule } from "../../../node_modules/ionic-angular/umd";
+import { IonicPageModule } from "../../../node_modules/ionic-angular";
 
 @NgModule({
   declarations:[LoginComponent],

@@ -5,7 +5,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { HttpClientModule } from '@angular/common/http';
 import { MyApp } from './app.component';
-import { LoginComponent } from '../components/login/login';
 import { HomePage } from '../pages/home/home';
 import { LoginService } from '../service/LoginService';
 import { common } from '../shared/common';
@@ -13,7 +12,6 @@ import { common } from '../shared/common';
 @NgModule({
   declarations: [
     MyApp,
-    LoginComponent,
     HomePage,
   ],
   imports: [
@@ -24,7 +22,6 @@ import { common } from '../shared/common';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    LoginComponent,
     HomePage,
   ],
   providers: [
