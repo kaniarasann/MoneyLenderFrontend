@@ -1,3 +1,5 @@
+import { HomePage } from "./../../pages/home/home";
+import { common } from "./../../shared/common";
 import { Component, Input } from "@angular/core";
 import { IonicPage, NavController } from "../../../node_modules/ionic-angular";
 import { ToastController } from "ionic-angular";
@@ -8,20 +10,14 @@ import {
 } from "../../../node_modules/@angular/forms";
 import { BaseController } from "../Shared/BaseController";
 import { LoginService } from "../../service/LoginService";
-import { HomePage } from "../../pages/home/home";
-
 
 @IonicPage()
 @Component({
   selector: "login",
   templateUrl: "login.html"
 })
-export class LoginComponent extends BaseController{
-  @Input()
+export class LoginComponent extends BaseController {
   data: any;
-  @Input()
-  events: any;
-
   public login: FormGroup;
 
   public username: string;
@@ -34,7 +30,8 @@ export class LoginComponent extends BaseController{
     public navCtrl: NavController,
     private formBuilder: FormBuilder,
     public toaster: ToastController,
-    private loginService:LoginService
+    private loginService: LoginService,
+    private common: common
   ) {
     super(toaster);
     this.isUsernameValid = true;
@@ -60,9 +57,21 @@ export class LoginComponent extends BaseController{
   }
 
   submitForm() {
-    this.loginService.validateLoginCredentials().subscribe(x=>{
-      this.navCtrl.push(HomePage);
-      console.log(x)
-    });
+    this.loginService
+      .validateLoginCredentials(
+        this.login.controls["username"].value,
+        this.login.controls["password"].value
+      )
+      .subscribe(
+        x => {
+          this.common.AuthenticationToken = []
+          this.common.AuthenticationToken.push({token:x.token,expiryDate:null,isExpired:null});
+          this.navCtrl.push(HomePage);
+        },
+        error => {
+          console.log(error);
+          this.CreateToast("Enter Valid username and password");
+        }
+      );
   }
 }

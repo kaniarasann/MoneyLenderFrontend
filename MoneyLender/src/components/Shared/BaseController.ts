@@ -4,9 +4,9 @@ export class BaseController {
   constructor(public toaster: ToastController) {}
   public CreateToast(
     msg: string,
-    duration: number,
-    position: string,
-    showCloseButton: boolean
+    duration: number = 5000,
+    position: string ="bottom",
+    showCloseButton: boolean=true
   ): void {
     this.toaster.create({
       message: msg,
