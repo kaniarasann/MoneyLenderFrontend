@@ -19,7 +19,6 @@ export class AuthInterceptor implements HttpInterceptor {
   private noOfActiveRequest: number = 0;
   private showHideLoader$ = new Subject<number>();
   private showLoadIcon: boolean = false;
-  private dismissEvent$ = new Subject<boolean>();
   public loading = this.loadingCtrl.create({
     content: "Please wait...",
     dismissOnPageChange:true
@@ -37,7 +36,6 @@ export class AuthInterceptor implements HttpInterceptor {
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    debugger;
     this.noOfActiveRequest++;
     this.showHideLoader$.next(this.noOfActiveRequest);
     if (
@@ -55,7 +53,6 @@ export class AuthInterceptor implements HttpInterceptor {
     return next.handle(req).finally(() => this.hideShowLoadingIcon(this));
   }
   hideShowLoadingIcon(event:any):void{
-    debugger;
     if (event instanceof HttpResponse) {
     if (this.showLoadIcon && this.noOfActiveRequest >= 0) {
       this.showLoadIcon = false;
