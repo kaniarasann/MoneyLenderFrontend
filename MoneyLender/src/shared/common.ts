@@ -3,7 +3,7 @@ import { DateTime } from "ionic-angular";
 
 @Injectable()
 export class common {
-  public ApiUrl: string = "http://localhost:5000";
+  public ApiUrl: string = "http://kaniarasan-001-site1.itempurl.com";
   public AuthenticationToken:AuthenticationToken[];
 }
 

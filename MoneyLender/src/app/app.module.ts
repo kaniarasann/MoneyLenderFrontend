@@ -6,15 +6,13 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
 import { LoginService } from '../service/LoginService';
 import { common } from '../shared/common';
 import { AuthInterceptor } from '../shared/auth.interceptor';
 
 @NgModule({
   declarations: [
-    MyApp,
-    HomePage,
+    MyApp
   ],
   imports: [
     BrowserModule,
@@ -23,8 +21,7 @@ import { AuthInterceptor } from '../shared/auth.interceptor';
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp,
-    HomePage,
+    MyApp
   ],
   providers: [
     StatusBar,

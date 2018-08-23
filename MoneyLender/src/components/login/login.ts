@@ -1,6 +1,5 @@
-import { HomePage } from "./../../pages/home/home";
 import { common } from "./../../shared/common";
-import { Component, Input } from "@angular/core";
+import { Component } from "@angular/core";
 import { IonicPage, NavController } from "../../../node_modules/ionic-angular";
 import { ToastController } from "ionic-angular";
 import {
@@ -11,7 +10,11 @@ import {
 import { BaseController } from "../Shared/BaseController";
 import { LoginService } from "../../service/LoginService";
 
-@IonicPage()
+@IonicPage(
+  {
+    name:'login'
+  }
+)
 @Component({
   selector: "login",
   templateUrl: "login.html"
@@ -66,7 +69,7 @@ export class LoginComponent extends BaseController {
         x => {
           this.common.AuthenticationToken = []
           this.common.AuthenticationToken.push({token:x.token,expiryDate:null,isExpired:null});
-          this.navCtrl.push(HomePage);
+          this.navCtrl.push('home');
         },
         error => {
           console.log(error);
