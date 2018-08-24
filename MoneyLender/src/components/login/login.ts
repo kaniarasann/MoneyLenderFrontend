@@ -69,7 +69,7 @@ export class LoginComponent extends BaseController {
         x => {
           this.common.AuthenticationToken = []
           this.common.AuthenticationToken.push({token:x.token,expiryDate:null,isExpired:null});
-          this.navCtrl.push('home');
+          this.navCtrl.setRoot('home');
         },
         error => {
           console.log(error);

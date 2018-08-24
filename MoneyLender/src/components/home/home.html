@@ -5,7 +5,13 @@
     </ion-title>
   </ion-navbar>
 </ion-header>
-<ion-tabs selectedIndex="0">
-  <ion-tab [root]="contactPage" tabTitle="Contact"></ion-tab>
-    <ion-tab [root]="aboutPage" tabTitle="AboutPage"></ion-tab>
-</ion-tabs>
+<ion-content>
+    <ion-card [hidden]="!chart">
+        <ion-card-header>
+          Collection Details
+        </ion-card-header>
+        <ion-card-content>
+            <canvas id="canvas">{{ chart }}</canvas>
+        </ion-card-content>
+      </ion-card>
+</ion-content>
