@@ -1,6 +1,9 @@
+import { BaseController } from './../Shared/BaseController';
 import { Component, OnInit } from "@angular/core";
-import { IonicPage } from "ionic-angular";
+import { IonicPage, ToastController,NavController } from "ionic-angular";
 import { Chart } from "chart.js";
+import { common } from '../../shared/common';
+import { Network } from '@ionic-native/network';
 @Component({
   selector: "home",
   templateUrl: "home.html"
@@ -8,7 +11,7 @@ import { Chart } from "chart.js";
 @IonicPage({
   name: "home"
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent extends BaseController  implements OnInit  {
   chart = [];
   data = {};
   options: {
@@ -17,7 +20,12 @@ export class HomeComponent implements OnInit {
       display: false;
     };
   };
-  constructor() {}
+  constructor(public common: common,
+    public network:Network,
+    public toaster: ToastController,
+    public navCtrl: NavController) {
+    super(toaster,network,common);
+  }
 
   ngOnInit(): void {
     this.data = {

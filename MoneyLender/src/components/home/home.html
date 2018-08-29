@@ -1,9 +1,10 @@
 <ion-header>
-  <ion-navbar color="primary" hideBackButton >
-    <ion-title>
-      Home
-    </ion-title>
-  </ion-navbar>
+    <ion-navbar>
+      <button ion-button menuToggle color="primary" hideBackButton>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>Home</ion-title>
+    </ion-navbar>
 </ion-header>
 <ion-content>
     <ion-card [hidden]="!chart">

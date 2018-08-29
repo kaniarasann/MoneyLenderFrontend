@@ -1,3 +1,4 @@
+import { Network } from '@ionic-native/network';
 import { common } from "./../../shared/common";
 import { Component } from "@angular/core";
 import { IonicPage, NavController } from "../../../node_modules/ionic-angular";
@@ -34,9 +35,10 @@ export class LoginComponent extends BaseController {
     private formBuilder: FormBuilder,
     public toaster: ToastController,
     private loginService: LoginService,
-    private common: common
+    public common: common,
+    public network:Network
   ) {
-    super(toaster);
+    super(toaster,network,common);
     this.isUsernameValid = true;
     this.isPasswordValid = true;
     this.login = this.formBuilder.group({

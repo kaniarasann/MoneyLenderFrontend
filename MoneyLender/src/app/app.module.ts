@@ -9,7 +9,7 @@ import { MyApp } from './app.component';
 import { LoginService } from '../service/LoginService';
 import { common } from '../shared/common';
 import { AuthInterceptor } from '../shared/auth.interceptor';
-
+import { Network } from '@ionic-native/network';
 @NgModule({
   declarations: [
     MyApp
@@ -34,7 +34,8 @@ import { AuthInterceptor } from '../shared/auth.interceptor';
     },
     LoginService,
     common,
-    HomeService
+    HomeService,
+    Network
   ]
 })
 export class AppModule {}
